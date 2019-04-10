@@ -1,14 +1,22 @@
 package me.mrbluesky.vo;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import lombok.AllArgsConstructor;
+
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.sql.Date;
+import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name="`MBR_MASTER_MST`")
 public class Member {
 
     /**
@@ -32,6 +40,7 @@ public class Member {
     private Long id;
 
     @Column(name = "mbr_id")
+//    @ManyToOne
     private String memberId;
 
     @Column(name = "name")

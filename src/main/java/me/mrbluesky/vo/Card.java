@@ -1,9 +1,13 @@
 package me.mrbluesky.vo;
 
 import lombok.AllArgsConstructor;
+
+import javax.persistence.*;
 import java.sql.Date;
 
 @AllArgsConstructor
+@Entity
+@Table(name="CRD_MASTER_MST")
 public class Card {
 
     /**
@@ -22,6 +26,8 @@ public class Card {
      *
      */
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
     private String cardNo;
     private String mbrId;
@@ -107,8 +113,12 @@ public class Card {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         Card card = (Card) o;
 
